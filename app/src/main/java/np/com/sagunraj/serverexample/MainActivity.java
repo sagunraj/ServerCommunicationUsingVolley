@@ -56,6 +56,8 @@ public class MainActivity extends AppCompatActivity {
                             if(success == 1){
                                 progressDialog.dismiss();
                                 Toast.makeText(MainActivity.this, "Login successful.", Toast.LENGTH_LONG).show();
+                                Intent in = new Intent(MainActivity.this, HomeActivity.class);
+                                startActivity(in);
                             }
                             else{
                                 progressDialog.dismiss();
@@ -64,13 +66,14 @@ public class MainActivity extends AppCompatActivity {
                         }
                         catch(Exception e){
                             progressDialog.dismiss();
-                            Toast.makeText(MainActivity.this, "Error in connection.", Toast.LENGTH_LONG).show();
+                            Toast.makeText(MainActivity.this, "Internal error.", Toast.LENGTH_LONG).show();
                         }
                     }
                 }, new Response.ErrorListener() {
                     @Override
                     public void onErrorResponse(VolleyError error) {
                         progressDialog.dismiss();
+                        Toast.makeText(MainActivity.this, "Error in connection.", Toast.LENGTH_LONG).show();
                     }
                 }){
                     @Override

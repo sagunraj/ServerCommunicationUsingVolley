@@ -69,7 +69,7 @@ public class SignUpActivity extends AppCompatActivity {
                         }
                         catch(Exception e){
                             dialog.dismiss();
-                            Toast.makeText(SignUpActivity.this, "Connection failed.", Toast.LENGTH_LONG).show();
+                            Toast.makeText(SignUpActivity.this, "Internal error.", Toast.LENGTH_LONG).show();
 
                         }
                     }
@@ -77,6 +77,7 @@ public class SignUpActivity extends AppCompatActivity {
                     @Override
                     public void onErrorResponse(VolleyError error) {
                         dialog.dismiss();
+                        Toast.makeText(SignUpActivity.this, "Connection failed.", Toast.LENGTH_LONG).show();
                     }
                 }){
                     @Override
